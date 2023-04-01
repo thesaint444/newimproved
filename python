@@ -1,0 +1,10 @@
+# Sample data
+data = [1, 2, 3, 4, 5]
+
+# Function to multiply each element in a list by a factor
+def multiply_data_by_factor(data, factor):
+    return [item * factor for item in data]
+
+# Multiply the data by 999
+multiplied_data = multiply_data_by_factor(data, 999)
+print(multiplied_data)
