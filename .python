@@ -1,0 +1,30 @@
+# config.py
+FEATURE_TOGGLES = {
+    "ascii_art_greeting": False
+}
+# greetings.py
+def text_greeting(name):
+    return f"Hello, {name}!"
+
+def ascii_art_greeting(name):
+    return f"""
+  _   _      _ _
+ | | | | ___| | | ___
+ | |_| |/ _ \ | |/ _ \\
+ |  _  |  __/ | | (_) |
+ |_| |_|\___|_|_|\___/
+
+Hello, {name}!
+"""
+# main.py
+from config import FEATURE_TOGGLES
+from greetings import text_greeting, ascii_art_greeting
+
+def greet_user(name):
+    if FEATURE_TOGGLES["ascii_art_greeting"]:
+        return ascii_art_greeting(name)
+    else:
+        return text_greeting(name)
+
+name = input("Enter your name: ")
+print(greet_user(name))
